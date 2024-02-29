@@ -1,0 +1,174 @@
+body {
+  padding: 0;
+  background-color: #101010;
+}
+
+.board {
+  position: fixed;
+  left: 50vw;
+  top: 50vh;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-around;
+}
+
+.store {
+  height: 10vw;
+  width: 10vw;
+  background-color: #404040;
+  border-radius: 5vw;
+  margin-top: 2vw;
+  line-height: 10vw;
+  font-size: 5vw;
+  text-align: center;
+  font-family: sans-serif;
+  color: #f7f7f7;
+}
+
+.row {
+  display: flex;
+}
+
+.reverse-row {
+  flex-direction: row-reverse;
+}
+
+.house {
+  height: 6vw;
+  width: 6vw;
+  background-color: #404040;
+  border-radius: 3vw;
+  margin: 0.5vw;
+  line-height: 6vw;
+  font-size: 3vw;
+  text-align: center;
+  font-family: sans-serif;
+  color: #f7f7f7;
+  cursor: pointer;
+}
+
+.house--blocked {
+  color: red;
+}
+
+.pieces-in-hand {
+  font-size: 5vh;
+  position: fixed;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  font-family: sans-serif;
+}
+
+.pieces-in-hand--player-one {
+  bottom: 20vh;
+}
+
+.pieces-in-hand--player-two {
+  top: 20vh;
+}
+
+.nametag {
+  font-size: 6vh;
+  text-align: center;
+  position: fixed;
+  left: 50vw;
+  font-family: sans-serif;
+  color: white;
+  background-color: transparent;
+  border: 0 solid transparent;
+  transform: translateX(-50%);
+}
+
+.nametag:hover {
+  background-color: #3f3f3f;
+}
+
+.nametag:focus {
+  background-color: white;
+  color: black;
+}
+
+.nametag--player-one {
+  bottom: 5vh;
+}
+
+.nametag--player-two {
+  top: 5vh;
+}
+
+.turn-indicator {
+  position: fixed;
+  left: 15vw;
+  right: 15vw;
+  background-color: #070707;
+  height: 10pt;
+  border: none;
+}
+
+.turn-indicator--active {
+  background-color: white;
+}
+
+.turn-indicator--player-one {
+  bottom: 5vh;
+}
+
+.turn-indicator--player-two {
+  top: 5vh;
+}
+
+.settings {
+  position: fixed;
+  bottom: 10pt;
+  right: 10pt;
+  height: 50pt;
+  width: 50pt;
+  cursor: pointer;
+}
+
+.settings-container {
+  background-color: #070707;
+  color: white;
+  font-family: sans-serif;
+  position: fixed;
+  bottom: 10pt;
+  right: 60pt;
+  padding: 5pt;
+}
+
+.settings__group {
+  display: flex;
+}
+
+.settings__option {
+  height: 50pt;
+  width: 50pt;
+  line-height: 50pt;
+  text-align: center;
+  border: 1pt solid white;
+  cursor: pointer;
+  margin: 1pt;
+}
+
+.settings__option:hover {
+  background-color: white;
+  color: black;
+}
+
+.settings__restart {
+  height: 24pt;
+  line-height: 24pt;
+  width: 50%;
+}
+
+.settings__restart:hover {
+  background-color: red;
+  color: white;
+}
+
+.settings__title {
+  margin-top: 10pt;
+  margin-bottom: 5pt;
+}

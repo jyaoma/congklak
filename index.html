@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <title>Congklak</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+
+<body>
+    <div id="app">
+        <hr class="turn-indicator turn-indicator--player-one" v-bind:class="{'turn-indicator--active':whoseTurn}">
+        </hr>
+        <hr class="turn-indicator turn-indicator--player-two" v-bind:class="{'turn-indicator--active':!whoseTurn}">
+        </hr>
+        <div class="board">
+            <store v-bind:count="playerOne.store"></store>
+            <div class="house-container">
+                <div class="row">
+                    <house v-for="house in playerTwoHouses" :key="house.id" v-bind:value="house" v-bind:move="initiateMove"
+                        v-bind:is-player-two="true"></house>
+                </div>
+                <div class="row reverse-row">
+                    <house v-for="house in playerOneHouses" :key="house.id" v-bind:value="house" v-bind:move="initiateMove"
+                        v-bind:is-player-two="false"></house>
+                </div>
+            </div>
+            <store v-bind:count="playerTwo.store"></store>
+        </div>
+        <!-- <input type="text" class="nametag nametag--player-one" placeholder="Player 1" />
+        <input type="text" class="nametag nametag--player-two" placeholder="Player 2" /> -->
+        <div class="pieces-in-hand pieces-in-hand--player-one" v-if="arePiecesInHandVisible">{{playerOne.piecesInHand}}</div>
+        <div class="pieces-in-hand pieces-in-hand--player-two" v-if="arePiecesInHandVisible">{{playerTwo.piecesInHand}}</div>
+        <img class="settings" src="settings-icon.svg" v-on:click="showSettings" />
+        <div class="settings-container" v-if="areSettingsVisible">
+            <div class="settings__title">Reset game</div>
+            <div class="settings__restart settings__option" v-on:click="setup">Restart</div>
+            <div class="settings__title">Show number of pieces in hand?</div>
+            <div class="settings__group">
+                <div class="settings__option" v-on:click="setPiecesInHandVisibility(true)">Show</div>
+                <div class="settings__option" v-on:click="setPiecesInHandVisibility(false)">Hide</div>
+            </div>
+            <div class="settings__title">Number of houses</div>
+            <div class="settings__group">
+                <div class="settings__option" v-on:click="setNumberOfHouses(5)">5</div>
+                <div class="settings__option" v-on:click="setNumberOfHouses(6)">6</div>
+                <div class="settings__option" v-on:click="setNumberOfHouses(7)">7</div>
+                <div class="settings__option" v-on:click="setNumberOfHouses(8)">8</div>
+                <div class="settings__option" v-on:click="setNumberOfHouses(9)">9</div>
+            </div>
+            <div class="settings__title">Speed</div>
+            <div class="settings__group">
+                <div class="settings__option" v-on:click="setSpeed(500)">Slow</div>
+                <div class="settings__option" v-on:click="setSpeed(250)">Normal</div>
+                <div class="settings__option" v-on:click="setSpeed(100)">Fast</div>
+                <div class="settings__option" v-on:click="setSpeed(20)">Faster</div>
+                <div class="settings__option" v-on:click="setSpeed(0)">Fastest</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+
+</html>
